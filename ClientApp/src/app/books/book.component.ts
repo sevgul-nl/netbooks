@@ -14,9 +14,9 @@ export class BookComponent {
     return this.repo.book;
   }
 
-  addReviews(bookId: number) {}
+  addReview(bookId: number) {}
 
-  editReviews(reviewId: number) {}
+  editReview(reviewId: number) {}
 
-  deleteReviews(reviewId: number) {}
+  deleteReview(reviewId: number) {}
 }
