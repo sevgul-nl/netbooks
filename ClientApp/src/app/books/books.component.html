@@ -1,0 +1,19 @@
+<div class="p-2">
+    <table class="table table-sm table-striped">
+        <tbody>
+            <tr>
+                <th>Tite</th>
+                <th>Author</th>
+                <th>Rate</th>
+            </tr>
+            <tr *ngFor="let book of books">
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.rating}}</td>
+                <td><button class="btn btn-primary m-1" (click)="listReviews(book.bookId)">
+                        Review
+                    </button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,42 @@
+<div class="p-2">
+    <table class="table table-sm table-striped">
+        <tbody>
+            <tr>
+                <th>Tite</th>
+                <th>Author</th>
+                <th>Rate</th>
+            </tr>
+            <tr>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.rating}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary m-1" (click)="addReview(book.bookId)">
+        Add Review
+    </button>
+
+    <table class="table table-sm table-striped">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Rate</th>
+            </tr>
+            <tr *ngFor="let review of book.reviews">
+
+                <td>{{review.author}}</td>
+                <td>{{review.comment}}</td>
+                <td>{{review.rating}}</td>
+                <td><button class="btn btn-primary m-1" (click)="editReview(review.reviewId)">
+                        Edit
+                    </button></td>
+                <td><button class="btn btn-primary m-1" (click)="deleteReview(review.reviewId)">
+                        Delete
+                    </button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
