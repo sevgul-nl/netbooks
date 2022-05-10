@@ -1,0 +1,29 @@
+<div class="p-2">
+    <table class="table table-sm table-striped">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{book.bookId}}</td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>{{book.title}}</td>
+            </tr>
+            <tr>
+                <td>Author</td>
+                <td>{{book.author}}</td>
+            </tr>
+            <tr>
+                <td>Rate</td>
+                <td>{{book.rating}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br />
+    <h2>Confirm Deletion</h2>
+    <h3>Review {{review.reviewId}} by {{review.author}}</h3>
+
+    <button type="button" class="btn btn-primary m-1" (click)="deleteReview(book.bookId, review)">Save</button>
+
+</div>

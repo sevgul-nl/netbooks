@@ -2,41 +2,46 @@
     <table class="table table-sm table-striped">
         <tbody>
             <tr>
-                <th>Tite</th>
+                <th>Id</th>
+                <th>Title</th>
                 <th>Author</th>
                 <th>Rate</th>
             </tr>
             <tr>
+                <td>{{book.bookId}}</td>
                 <td>{{book.title}}</td>
                 <td>{{book.author}}</td>
                 <td>{{book.rating}}</td>
             </tr>
         </tbody>
     </table>
-    <button class="btn btn-primary m-1" (click)="addReview(book.bookId)">
+    <button class="btn btn-primary m-1" (click)="editReview(book.bookId)">
         Add Review
     </button>
-
-    <table class="table table-sm table-striped">
-        <tbody>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Rate</th>
-            </tr>
-            <tr *ngFor="let review of book.reviews">
-
-                <td>{{review.author}}</td>
-                <td>{{review.comment}}</td>
-                <td>{{review.rating}}</td>
-                <td><button class="btn btn-primary m-1" (click)="editReview(review.reviewId)">
-                        Edit
-                    </button></td>
-                <td><button class="btn btn-primary m-1" (click)="deleteReview(review.reviewId)">
-                        Delete
-                    </button></td>
-            </tr>
-        </tbody>
-    </table>
-
+    <div *ngIf="book.reviews && book.reviews.length > 0">
+        <table class="table table-sm table-striped">
+            <tbody>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Rate</th>
+                </tr>
+                <tr *ngFor="let review of book.reviews">
+                    <td>{{review.author}}</td>
+                    <td>{{review.comment}}</td>
+                    <td>{{review.rating}}</td>
+                    <td>
+                        <button class="btn btn-primary m-1" (click)="editReview(book.bookId, review)">
+                            Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary m-1" (click)="deleteReview(book.bookId, review)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

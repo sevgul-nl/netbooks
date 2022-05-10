@@ -84,4 +84,4 @@ namespace netbooks
             SeedData.Do(services.GetRequiredService<DataContext>());
         }
     }
-}
+} 

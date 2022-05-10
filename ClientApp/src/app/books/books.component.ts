@@ -17,7 +17,7 @@ export class BooksComponent {
   }
 
   listReviews(bookId: number) {
-    this.repo.getReviews(bookId);
-    this.router.navigateByUrl('reviews');
+    this.repo.getBook(bookId);
+    this.router.navigateByUrl('book');
   }
 }

@@ -1,0 +1,58 @@
+<div class="p-2">
+    <table class="table table-sm table-striped">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{book.bookId}}</td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>{{book.title}}</td>
+            </tr>
+            <tr>
+                <td>Author</td>
+                <td>{{book.author}}</td>
+            </tr>
+            <tr>
+                <td>Rate</td>
+                <td>{{book.rating}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br />
+
+    <h4 *ngIf="showError" class="p-2 bg-danger text-white">
+        Invalid username
+    </h4>
+    <form novalidate #reviewForm="ngForm">
+        <div class="form-group">
+            <label>User name</label>
+            <input #reviewAuthor="ngModel" name="rauthor" class="form-control" [(ngModel)]="review.author" required
+                style="width:12em" />
+            <div *ngIf="reviewAuthor.invalid" class="text-danger">
+                Please enter your name
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Review</label>
+            <!--textarea matInput #cardCode="ngModel" name="reviewAuthor" class="form-control" [(ngModel)]="review.author"
+            required style="width:30em; height:13em" /-->
+            <textarea #reviewComment="ngModel" name="rcomment" class=" form-control" [(ngModel)]="review.comment"
+                style="height:10em"></textarea>
+            <div *ngIf="reviewComment.invalid" class="text-danger">
+                Please enter your comments
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Rating</label>
+            <input type="number" #reviewRating="ngModel" name="rrating" class="form-control" [(ngModel)]="review.rating"
+                required style="width:5em" />
+            <div *ngIf="reviewRating.invalid" class="text-danger">
+                Please enter rating
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary m-1" [disabled]="reviewForm.invalid"
+            (click)="saveReview(book.bookId, review)">Save</button>
+    </form>
+</div>
